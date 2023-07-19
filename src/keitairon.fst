@@ -7,7 +7,7 @@
 
 % Inflection rules (Verbs)
 $verb_ichidan_infl$ = (\
-  | {<dict>}:{} \
+    {<dict>}:{} \
   | {<ppast>}:{<ichidanstem>ました} \
   | {<pdict>}:{<ichidanstem>ます} \
   | {<past>}:{<ichidante>た} \
@@ -20,11 +20,11 @@ $verb_ichidan_infl$ = (\
 )
 
 $verb_godan_infl$ = (\
-  | {<dict>}:{} \
+    {<dict>}:{} \
   | {<ppast>}:{<godanstem>ました} \
   | {<pdict>}:{<godanstem>ます} \
   | {<zuneg>}:{<godannegstem>ず} \
-  | {<pvol>}:{<godannegstem>ましょう} \
+  | {<pvol>}:{<godanstem>ましょう} \
   | {<vol>}:{<godanvolstem>う} \
   | {<imp>}:{<estem>} \
   | {<condba>}:{<estem>ば} \
@@ -75,7 +75,7 @@ $R$ = $verb_ichidan_stemmation$ \
    || $verb_godan_stemmation$ \
    || $verb_godan_negative_stemmation$ \
    || $verb_godan_volitional_stemmation$ \
-   || $verb_e_stemmation$
+   || $verb_e_stemmation$ \
    || $delete_MARKER$
 
 $morph$ || $R$
