@@ -1,7 +1,6 @@
 % Inflection rules (Verbs)
 % Key:
 % <dict>: Dictionary form
-% <neg>: Plain negative form
 % <nuneg>: Classical negative form (ぬ)
 % <pdict>: Polite form
 % <ppast>: Polite past form
@@ -16,12 +15,9 @@
 % <negimp>: Negative imperative form
 % <condba>: ば conditional form
 % <condtara>: たら conditional form
-% <potential>: Potential form
-% <tai>: たい form
 % <te>: て form
 $verb_ichidan_infl$ = (\
     {<dict>}:{} \ % TODO: Verb adjective?
-  | {<neg>}:{<ichidanstem>ない<KeiyoushiAdjective>} \
   | {<nuneg>}:{<ichidanstem>ぬ} \ % TODO: Verb adjective?
   | {<pdict>}:{<ichidanstem>ます} \
   | {<ppast>}:{<ichidanstem>ました} \
@@ -36,21 +32,18 @@ $verb_ichidan_infl$ = (\
   | {<negimp>}:{な} \
   | {<condba>}:{<estem>ば} \
   | {<condtara>}:{<ichidanstem>たら} \
-  | {<potential>}:{<ichidanstem>られる<IchidanVerb>} \
-  | {<tai>}:{<ichidanstem>たい<KeiyoushiAdjective>} \
   | {<te>}:{<ichidanstem>て} \
 )
 
 $verb_godan_infl$ = (\
     {<dict>}:{} \ % TODO: Verb adjective?
-  | {<neg>}:{<godannegstem>ない<KeiyoushiAdjective>} \
-  | {<nuneg>}:{<godannegstem>ぬ} \ % TODO: Verb adjective?
+  | {<nuneg>}:{<negstem>ぬ} \ % TODO: Verb adjective?
   | {<pdict>}:{<godanstem>ます} \
   | {<ppast>}:{<godanstem>ました} \
   | {<pneg>}:{<godanstem>ません} \
   | {<pnegpast>}:{<godanstem>ませんでした} \
   | {<past>}:{<godantestem><godantaconversion>} \ % TODO: Verb adjective?
-  | {<zuneg>}:{<godannegstem>ず} \
+  | {<zuneg>}:{<negstem>ず} \
   | {<pvol>}:{<godanstem>ましょう} \
   | {<vol>}:{<godanvolstem>う} \
   | {<imp>}:{<estem>} \
@@ -58,8 +51,6 @@ $verb_godan_infl$ = (\
   | {<negimp>}:{な} \
   | {<condba>}:{<estem>ば} \
   | {<condtara>}:{<godantestem><godantaconversion>ら} \
-  | {<potential>}:{<estem>る<IchidanVerb>} \
-  | {<tai>}:{<godanstem>たい<KeiyoushiAdjective>} \
   | {<te>}:{<godantestem>} \
 )
 
@@ -80,7 +71,7 @@ $verb_godan_stemmation$ = [うくぐすつむぬぶる] <=> [いきぎしちみ�
 
 % Change the last sound to an あ to make stem | 語幹を作るために最後の文字の「う」が「い」に変えます
 ALPHABET = [#sym#] [うくぐすつむぬぶる]:[わかがさたまなばら]
-$verb_godan_negative_stemmation$ = [うくぐすつむぬぶる] <=> [わかがさたまなばら] ([<GodanVerb><PoliteVerb>] <godannegstem>)
+$verb_godan_negative_stemmation$ = [うくぐすつむぬぶる] <=> [わかがさたまなばら] ([<GodanVerb><IchidanVerb><PoliteVerb>] <negstem>)
 
 % Change the last sound to an お to make stem | 語幹を作るために最後の文字の「お」が「い」に変えます
 ALPHABET = [#sym#] [うくぐすつむぬぶる]:[おこごそとものぼろ]
