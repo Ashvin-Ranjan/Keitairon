@@ -1,7 +1,10 @@
 % Symbols
 #kana# = あ-ゖ ア-ヶ
-#type# = <GodanVerb><IchidanVerb><KeiyoushiAdjective><Noun>
-#verbmarker# = <godanstem><godannegstem><godanvolstem><estem><ichidanstem><godantestem><godantaconversion>
+#type# = <GodanVerb><IchidanVerb><PoliteVerb><KeiyoushiAdjective><Noun>
+#verbmarker# = <godanstem><godannegstem><godanvolstem><godantestem><godantaconversion> \
+               <estem> \
+               <ichidanstem> \
+               <politestem>
 #adjmarker# = <keiyoushistem>
 #marker# = #type# #verbmarker# #adjmarker#
 #sym# = #kana# #marker#

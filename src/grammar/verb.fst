@@ -12,7 +12,8 @@
 % <pvol>: Polite volitional form
 % <vol>: Plain volitional form
 % <imp>: Imperative form
-% <negimp>: Negative Imperative form
+% <polimp>: Polite imperative form
+% <negimp>: Negative imperative form
 % <condba>: ば conditional form
 % <condtara>: たら conditional form
 % <potential>: Potential form
@@ -31,6 +32,7 @@ $verb_ichidan_infl$ = (\
   | {<pvol>}:{<ichidanstem>ましょう} \
   | {<vol>}:{<ichidanstem>よう} \
   | {<imp>}:{<ichidanstem>ろ} \
+  | {<polimp>}:{<ichidanstem>なさい} \
   | {<negimp>}:{な} \
   | {<condba>}:{<estem>ば} \
   | {<condtara>}:{<ichidanstem>たら} \
@@ -52,6 +54,7 @@ $verb_godan_infl$ = (\
   | {<pvol>}:{<godanstem>ましょう} \
   | {<vol>}:{<godanvolstem>う} \
   | {<imp>}:{<estem>} \
+  | {<polimp>}:{<godanstem>なさい} \
   | {<negimp>}:{な} \
   | {<condba>}:{<estem>ば} \
   | {<condtara>}:{<godantestem><godantaconversion>ら} \
@@ -62,6 +65,7 @@ $verb_godan_infl$ = (\
 
 $verb_ichidan$ = "lexicon/verb/verb_ichidan.lex" <IchidanVerb>
 $verb_godan$ = "lexicon/verb/verb_godan.lex" <GodanVerb>
+$verb_polite$ = "lexicon/verb/verb_polite.lex" <PoliteVerb>
 
 % Ichidan verb changes
 % Remove る to make stem | 語幹を作るために「る」を消します
@@ -76,11 +80,11 @@ $verb_godan_stemmation$ = [うくぐすつむぬぶる] <=> [いきぎしちみ�
 
 % Change the last sound to an あ to make stem | 語幹を作るために最後の文字の「う」が「い」に変えます
 ALPHABET = [#sym#] [うくぐすつむぬぶる]:[わかがさたまなばら]
-$verb_godan_negative_stemmation$ = [うくぐすつむぬぶる] <=> [わかがさたまなばら] (<GodanVerb> <godannegstem>)
+$verb_godan_negative_stemmation$ = [うくぐすつむぬぶる] <=> [わかがさたまなばら] ([<GodanVerb><PoliteVerb>] <godannegstem>)
 
 % Change the last sound to an お to make stem | 語幹を作るために最後の文字の「お」が「い」に変えます
 ALPHABET = [#sym#] [うくぐすつむぬぶる]:[おこごそとものぼろ]
-$verb_godan_volitional_stemmation$ = [うくぐすつむぬぶる] <=> [おこごそとものぼろ] (<GodanVerb> <godanvolstem>)
+$verb_godan_volitional_stemmation$ = [うくぐすつむぬぶる] <=> [おこごそとものぼろ] ([<GodanVerb><PoliteVerb>] <godanvolstem>)
 
 % Te form conjugation is a bit strange but is regular
 ALPHABET = [#sym#]
@@ -88,16 +92,21 @@ $verb_godan_te_stemmation$ = [うつる]:{って} \
                            | {す}:{して} \
                            | {く}:{いて} \
                            | {ぐ}:{いで} \
-                           | [ぬむぶ]:{んで} ^-> (__ <GodanVerb><godantestem>)
+                           | [ぬむぶ]:{んで} ^-> (__ [<GodanVerb><PoliteVerb>]<godantestem>)
 
 % Change the last sound to an あ to make it past tense
 ALPHABET = [#sym#] [てで]:[ただ]
-$verb_godan_ta_conversion$ = [てで] <=> [ただ] (<GodanVerb> <godantestem> <godantaconversion>)
+$verb_godan_ta_conversion$ = [てで] <=> [ただ] ([<GodanVerb><PoliteVerb>] <godantestem> <godantaconversion>)
 
 % Change the last sound to an え to make stem | 語幹を作るために最後の文字の「え」が「い」に変えます
 % Used by Ichidan verbs for ば conditional
 ALPHABET = [#sym#] [うくぐすつむぬぶる]:[えけげせてめねべれ]
 $verb_e_stemmation$ = [うくぐすつむぬぶる] <=> [えけげせてめねべれ] ([<IchidanVerb><GodanVerb>] <estem>)
+
+% Polite verb changes
+% Change る to い to make the stem
+ALPHABET = [#sym#] る:い
+$verb_polite_stemmation$ = る <=> い (<PoliteVerb> <godanstem>)
 
 % Verb stem rules
 $verb_stemmation$ = $verb_ichidan_stemmation$ \
@@ -106,4 +115,5 @@ $verb_stemmation$ = $verb_ichidan_stemmation$ \
                  || $verb_godan_volitional_stemmation$ \
                  || $verb_godan_te_stemmation$ \
                  || $verb_godan_ta_conversion$ \
-                 || $verb_e_stemmation$
+                 || $verb_e_stemmation$ \
+                 || $verb_polite_stemmation$
