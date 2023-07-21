@@ -7,6 +7,8 @@
 % <minoun>: み noun form
 % <adv>: Adverb form
 % <te>: て form
+% <condba>: ば conditional form
+% <condtara>: たら conditional form
 $adj_keiyoushi_infl$ = (\
     {<dict>}:{} \
   | {<neg>}:{<keiyoushistem>くない<KeiyoushiAdjective>} \
@@ -15,6 +17,8 @@ $adj_keiyoushi_infl$ = (\
   | {<minoun>}:{<keiyoushistem>み} \ % TODO: Noun
   | {<adv>}:{<keiyoushistem>く} \
   | {<te>}:{<keiyoushistem>くて} \ % TODO: Combinations
+  | {<condba>}:{<keiyoushistem>ければ} \
+  | {<condtara>}:{<keiyoushistem>かったら} \
 )
 
 $adjective_keiyoushi$ = "lexicon/adjective/adjective_keiyoushi.lex" <KeiyoushiAdjective>
@@ -23,3 +27,5 @@ $adjective_keiyoushi$ = "lexicon/adjective/adjective_keiyoushi.lex" <KeiyoushiAd
 % Remove い to make stem | 語幹を作るために「い」を消します
 ALPHABET = [#sym#] い:<>
 $adj_keiyoushi_stemmation$ = い <=> <> (<KeiyoushiAdjective> <keiyoushistem>)
+
+$adj_stemmation$ = $adj_keiyoushi_stemmation$

@@ -98,3 +98,12 @@ $verb_godan_ta_conversion$ = [てで] <=> [ただ] (<GodanVerb> <godantestem> <g
 % Used by Ichidan verbs for ば conditional
 ALPHABET = [#sym#] [うくぐすつむぬぶる]:[えけげせてめねべれ]
 $verb_e_stemmation$ = [うくぐすつむぬぶる] <=> [えけげせてめねべれ] ([<IchidanVerb><GodanVerb>] <estem>)
+
+% Verb stem rules
+$verb_stemmation$ = $verb_ichidan_stemmation$ \
+                 || $verb_godan_stemmation$ \
+                 || $verb_godan_negative_stemmation$ \
+                 || $verb_godan_volitional_stemmation$ \
+                 || $verb_godan_te_stemmation$ \
+                 || $verb_godan_ta_conversion$ \
+                 || $verb_e_stemmation$
