@@ -9,3 +9,5 @@
 あそぶ
 とう<SpecialVerb>
 やとう
+いく<SpecialVerb>
+おる
