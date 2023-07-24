@@ -46,11 +46,21 @@ $adj_noun_keiyoushi_deriv$ = (\
   | {<minoun>}:{<keiyoushistem>み<Noun>} \
 )
 
-$deriv_verb_ichidan$ = $verb_ichidan$ $verb_verb_ichidan_deriv$+ \
-                     | $verb_godan$ $verb_verb_godan_deriv$ ($verb_verb_ichidan_deriv$)*
+$full_verb_ichidan$ = $verb_ichidan$ \
+                          | $verb_suru$ \
+                          | $helper_verb_ichidan$
 
-$deriv_adj_keiyoushi$ = ($verb_ichidan$ | $deriv_verb_ichidan$) $verb_adj_ichidan_deriv$ \
-                      | $verb_godan$ $verb_adj_godan_deriv$
+$verb_godan_collection$ = $verb_godan$ \
+                        | $helper_verb_godan$
+
+$deriv_verb_ichidan$ = $full_verb_ichidan$ $verb_verb_ichidan_deriv$+ \
+                     | $verb_godan_collection$ $verb_verb_godan_deriv$ ($verb_verb_ichidan_deriv$)*
+
+$full_verb_ichidan$ = $full_verb_ichidan$ \
+                    | $deriv_verb_ichidan$
+
+$deriv_adj_keiyoushi$ = $full_verb_ichidan$ $verb_adj_ichidan_deriv$ \
+                      | $verb_godan_collection$ $verb_adj_godan_deriv$
 
 $deriv_adj_keiyoushi$ = $deriv_adj_keiyoushi$ $adj_adj_keiyoushi_deriv$* \
                       | $adj_keiyoushi$ $adj_adj_keiyoushi_deriv$+

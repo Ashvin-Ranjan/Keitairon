@@ -1,6 +1,7 @@
 #include "grammar/symbols.fst"
 #include "grammar/adjective.fst"
 #include "grammar/verb.fst"
+#include "grammar/noun.fst"
 #include "grammar/verb_helpers.fst"
 #include "grammar/special.fst"
 #include "grammar/derivation.fst"
@@ -9,7 +10,8 @@
 % Full Ichidan and Godan list
 $full_verb_ichidan$ = $verb_ichidan$ \
                     | $helper_verb_ichidan$ \
-                    | $deriv_verb_ichidan$
+                    | $deriv_verb_ichidan$ \
+                    | $verb_suru$
 
 $full_verb_godan$ = $verb_godan$ \
                   | $helper_verb_godan$ \
@@ -17,7 +19,8 @@ $full_verb_godan$ = $verb_godan$ \
 
 % Full noun list
 $full_noun$ = $helper_noun$ \
-            | $deriv_noun$
+            | $deriv_noun$ \
+            | $noun_suru$
 
 % Full Keiyoushi adjective list
 $full_adj_keiyoushi$ = $adj_keiyoushi$ \
