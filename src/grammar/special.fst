@@ -31,9 +31,14 @@ $verb_suru_stem$ = $verb_suru_passive_stem$ \
                 || $verb_classical_neg_stem$ \
                 || $verb_suru_reg_stem$
 
+% The plain negative form of ある is ない
+ALPHABET = [#sym#]
+$verb_aru_neg_stem$ = {ある}:{<>} ^-> (__ <SpecialVerb><GodanVerb><negstem>ない)
+
 $special_rules$ = $adj_ii_conversion$ \
                || $verb_tou_te$ \
                || $verb_kureru_imp$ \
                || $verb_iru_oru$ \
                || $verb_iku_te$ \
-               || $verb_suru_stem$
+               || $verb_suru_stem$ \
+               || $verb_aru_neg_stem$

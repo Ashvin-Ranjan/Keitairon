@@ -11,3 +11,4 @@
 やとう
 いく<SpecialVerb>
 おる
+ある<SpecialVerb>
