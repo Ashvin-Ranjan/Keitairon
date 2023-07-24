@@ -52,6 +52,7 @@ $deriv_verb_ichidan$ = $verb_ichidan$ $verb_verb_ichidan_deriv$+ \
 $deriv_adj_keiyoushi$ = ($verb_ichidan$ | $deriv_verb_ichidan$) $verb_adj_ichidan_deriv$ \
                       | $verb_godan$ $verb_adj_godan_deriv$
 
-$deriv_adj_keiyoushi$ = ($deriv_adj_keiyoushi$ | $adj_keiyoushi$) $adj_adj_keiyoushi_deriv$+
+$deriv_adj_keiyoushi$ = $deriv_adj_keiyoushi$ $adj_adj_keiyoushi_deriv$* \
+                      | $adj_keiyoushi$ $adj_adj_keiyoushi_deriv$+
 
 $deriv_noun$ = ($deriv_adj_keiyoushi$ | $adj_keiyoushi$) $adj_noun_keiyoushi_deriv$
