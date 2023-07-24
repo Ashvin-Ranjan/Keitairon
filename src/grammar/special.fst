@@ -35,10 +35,32 @@ $verb_suru_stem$ = $verb_suru_passive_stem$ \
 ALPHABET = [#sym#]
 $verb_aru_neg_stem$ = {ある}:{<>} ^-> (__ <SpecialVerb><GodanVerb><negstem>ない)
 
+% くる has many strange conjugations
+ALPHABET = [#sym#]
+$verb_kuru_reg_stem$ = {くる}:{き} ^-> (__ <SpecialVerb><GodanVerb><godanstem>)
+$verb_kuru_te_stem$ = {くる}:{きて} ^-> (__ <SpecialVerb><GodanVerb><godantestem>)
+$verb_kuru_neg_stem$ = {くる}:{こ} ^-> (__ <SpecialVerb><GodanVerb><negstem>)
+$verb_kuru_potential_stem$ = {くる}:{こられ} ^-> (__ <SpecialVerb><GodanVerb><estem>る<IchidanVerb>)
+$verb_kuru_causative_stem$ = {くる}:{こら} ^-> (__ <SpecialVerb><GodanVerb><negstem>れる<IchidanVerb>)
+$verb_kuru_passive_stem$ = {くる}:{こさ} ^-> (__ <SpecialVerb><GodanVerb><negstem>せる<IchidanVerb>)
+$verb_kuru_imp$ = {くる}:{こい} ^-> (__ <SpecialVerb><GodanVerb><estem>)
+$verb_kuru_ba$ = {くる}:{くれ} ^-> (__ <SpecialVerb><GodanVerb><estem>ば)
+$verb_kuru_vol_stem$ = {くる}:{こよ} ^-> (__ <SpecialVerb><GodanVerb><godanvolstem>う)
+$verb_kuru_stem$ = $verb_kuru_passive_stem$ \
+                || $verb_kuru_causative_stem$ \
+                || $verb_kuru_potential_stem$ \
+                || $verb_kuru_neg_stem$ \
+                || $verb_kuru_te_stem$ \
+                || $verb_kuru_reg_stem$ \
+                || $verb_kuru_vol_stem$ \
+                || $verb_kuru_ba$ \
+                || $verb_kuru_imp$
+
 $special_rules$ = $adj_ii_conversion$ \
                || $verb_tou_te$ \
                || $verb_kureru_imp$ \
                || $verb_iru_oru$ \
                || $verb_iku_te$ \
                || $verb_suru_stem$ \
-               || $verb_aru_neg_stem$
+               || $verb_aru_neg_stem$ \
+               || $verb_kuru_stem$

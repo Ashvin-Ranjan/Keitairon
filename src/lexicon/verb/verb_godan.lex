@@ -12,3 +12,4 @@
 いく<SpecialVerb>
 おる
 ある<SpecialVerb>
+くる<SpecialVerb>
