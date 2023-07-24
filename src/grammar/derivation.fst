@@ -6,14 +6,14 @@
 % TODO: allow causative-passive form but not passive-causative
 $verb_verb_ichidan_deriv$ = (\
     {<potential>}:{<negstem>れる<IchidanVerb>} \
-  | {<causative>}:{<negstem>れる<IchidanVerb>} \
-  | {<passive>}:{<negstem>せる<IchidanVerb>} \
+  | {<causative>}:{<ichidanstem>させる<IchidanVerb>} \
+  | {<passive>}:{<negstem>れる<IchidanVerb>} \
 )
 
 $verb_verb_godan_deriv$ = (\
     {<potential>}:{<estem>る<IchidanVerb>} \
-  | {<causative>}:{<negstem>れる<IchidanVerb>} \
-  | {<passive>}:{<negstem>せる<IchidanVerb>} \
+  | {<causative>}:{<negstem>せる<IchidanVerb>} \
+  | {<passive>}:{<negstem>れる<IchidanVerb>} \
 )
 
 % Derivations for verbs to adjectives (keiyoushi)
@@ -47,9 +47,9 @@ $adj_noun_keiyoushi_deriv$ = (\
 )
 
 $deriv_verb_ichidan$ = $verb_ichidan$ $verb_verb_ichidan_deriv$+ \
-                     | $verb_godan$ $verb_verb_godan_deriv$+
+                     | $verb_godan$ $verb_verb_godan_deriv$ ($verb_verb_ichidan_deriv$)*
 
-$deriv_adj_keiyoushi$ = $verb_ichidan$ $verb_adj_ichidan_deriv$ \
+$deriv_adj_keiyoushi$ = ($verb_ichidan$ | $deriv_verb_ichidan$) $verb_adj_ichidan_deriv$ \
                       | $verb_godan$ $verb_adj_godan_deriv$
 
 $deriv_adj_keiyoushi$ = ($deriv_adj_keiyoushi$ | $adj_keiyoushi$) $adj_adj_keiyoushi_deriv$+
