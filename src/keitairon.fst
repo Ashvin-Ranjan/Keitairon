@@ -2,6 +2,7 @@
 #include "grammar/adjective.fst"
 #include "grammar/verb.fst"
 #include "grammar/verb_helpers.fst"
+#include "grammar/special.fst"
 #include "grammar/derivation.fst"
 
 % Combine all of the different derivations together
@@ -19,7 +20,9 @@ $full_noun$ = $helper_noun$ \
             | $deriv_noun$
 
 % Full Keiyoushi adjective list
-$full_adj_keiyoushi$ = $adj_keiyoushi$ | $deriv_adj_keiyoushi$
+$full_adj_keiyoushi$ = $adj_keiyoushi$ \
+                     | $deriv_adj_keiyoushi$ \
+                     | いい <SpecialAdjective>
 
 % Do inflections
 $morph$ = $full_verb_ichidan$ $verb_ichidan_infl$ \
@@ -27,7 +30,8 @@ $morph$ = $full_verb_ichidan$ $verb_ichidan_infl$ \
         | $full_adj_keiyoushi$ $adj_keiyoushi_infl$ \
         | $full_noun$
 
-$R$ = $verb_stemmation$ \
+$R$ = $special_rules$ \
+   || $verb_stemmation$ \
    || $adj_stemmation$ \
    || $delete_MARKER$
 
