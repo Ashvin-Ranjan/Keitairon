@@ -47,8 +47,8 @@ $adj_noun_keiyoushi_deriv$ = (\
 )
 
 $full_verb_ichidan$ = $verb_ichidan$ \
-                          | $verb_suru$ \
-                          | $helper_verb_ichidan$
+                    | $verb_suru$ \
+                    | $helper_verb_ichidan$
 
 $verb_godan_collection$ = $verb_godan$ \
                         | $helper_verb_godan$

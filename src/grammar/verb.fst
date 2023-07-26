@@ -33,6 +33,7 @@ $verb_ichidan_infl$ = (\
   | {<negimp>}:{な} \
   | {<condba>}:{<estem>ば} \
   | {<condtara>}:{<ichidanstem>たら} \
+  | {<te>}:{<ichidanstem>て} \
   | {<stem>}:{<ichidanstem>} \
 )
 

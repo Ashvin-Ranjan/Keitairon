@@ -20,7 +20,8 @@ $full_verb_godan$ = $verb_godan$ \
 % Full noun list
 $full_noun$ = $helper_noun$ \
             | $deriv_noun$ \
-            | $noun_suru$
+            | $noun_suru$ \
+            | $ka_noun$
 
 % Full Keiyoushi adjective list
 $full_adj_keiyoushi$ = $adj_keiyoushi$ \

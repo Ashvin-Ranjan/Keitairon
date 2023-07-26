@@ -1,3 +1,9 @@
 $noun_suru$ = "lexicon/noun/noun_suru.lex" <Noun>
+$noun$ = "lexicon/noun/noun.lex" <Noun>
 
-$verb_suru$ = $noun_suru$ する <SpecialVerb> <IchidanVerb>
+$full_noun$ = $noun_suru$ \
+            | $noun$
+
+$ka_noun$ = $full_noun$ か <Noun>
+
+$verb_suru$ = ($noun_suru$ | $ka_noun$) する <SpecialVerb> <IchidanVerb>
