@@ -4,7 +4,7 @@ $noun$ = "lexicon/noun/noun.lex" <Noun>
 $full_noun$ = $noun_suru$ \
             | $noun$
 
-$ka_noun$ = $full_noun$ か <Noun>
+$ka_noun$ = $full_noun$ (か | 化) <Noun>
 
 $verb_suru$ = ($noun_suru$ | $ka_noun$) する <SpecialVerb> <IchidanVerb>
 
@@ -15,4 +15,5 @@ $verb_suru$ = ($noun_suru$ | $ka_noun$) する <SpecialVerb> <IchidanVerb>
 $noun_infl$ = (\
     {<dict>}:{} \
   | {<nashi>}:{なし} \
+  | {<nashi>}:{無し} \
 )

@@ -895,7 +895,7 @@ namespace SFST
     read_node(file, root_node(), p, this);
     delete[] p;
 
-    alphabet.read(file);
+    // alphabet.read(file);
 
     vmark = 1;
     deterministic = minimised = 1;

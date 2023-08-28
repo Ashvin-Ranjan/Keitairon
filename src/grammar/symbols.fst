@@ -1,5 +1,5 @@
 % Symbols
-#kana# = あ-ゖ ア-ヶ% 一-龯 㐀-䶿 
+#kana# = あ-ゖ ア-ヶ 自動化来良居有呉
 #type# = <GodanVerb><IchidanVerb><PoliteVerb><SpecialVerb><KeiyoushiAdjective><SpecialAdjective><Noun>
 #verbmarker# = <godanstem><godanvolstem><godantestem><godantaconversion> \
                <estem><negstem> \

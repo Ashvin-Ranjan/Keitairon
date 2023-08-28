@@ -5,6 +5,7 @@
 #include "grammar/verb_helpers.fst"
 #include "grammar/special.fst"
 #include "grammar/derivation.fst"
+#include "grammar/filter.fst"
 
 % Combine all of the different derivations together
 % Full Ichidan and Godan list
@@ -33,11 +34,12 @@ $full_adj_keiyoushi$ = $adj_keiyoushi$ \
 $morph$ = $full_verb_ichidan$ $verb_ichidan_infl$ \
         | $full_verb_godan$ $verb_godan_infl$ \
         | $full_adj_keiyoushi$ $adj_keiyoushi_infl$ \
-        | $full_noun$ $noun_infl$
+        | $full_noun$ $noun_infl$ \
+        | $deriv_aru_keiyoushi$ % Special case with inflections
 
 $R$ = $special_rules$ \
    || $verb_stemmation$ \
    || $adj_stemmation$ \
    || $delete_MARKER$
 
-$morph$ || $R$
+$morph$ || $filter$ || $R$ 

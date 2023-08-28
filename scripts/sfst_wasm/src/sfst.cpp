@@ -25,13 +25,13 @@ extern "C"
     try
     {
       Transducer a(file);
-      transducer = a.copy();
       fclose(file);
+      // transducer = a.copy();
     }
     catch (const char *p)
     {
-      std::cerr << p << "\n";
-      return 1;
+      printf("Error: %s", p);
+      return 2;
     }
   }
 

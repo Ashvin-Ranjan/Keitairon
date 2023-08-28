@@ -12,4 +12,7 @@
 いく<SpecialVerb>
 おる
 ある<SpecialVerb>
+有る<SpecialVerb>
+居る
 くる<SpecialVerb>
+問う<SpecialVerb>
